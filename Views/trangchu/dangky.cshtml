@@ -1,0 +1,141 @@
+﻿@model Nhom2_giuaky.Models.Employee
+@{
+    ViewBag.Title = "Đăng ký";
+}
+
+<style>
+    .container {
+        max-width: 500px;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        background-color: #f9f9f9;
+    }
+
+    h2 {
+        text-align: center;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+    }
+
+    .btn-primary {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: #007bff;
+        color: #fff;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+    .text-danger {
+        color: red;
+    }
+
+    /* Adjust alignment for labels */
+    label {
+        display: block;
+        margin-bottom: 5px;
+    }
+</style>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+
+<div class="container">
+    <h2>Đăng ký</h2>
+
+    @using (Html.BeginForm("dangky", "trangchu", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-group">
+            <label for="employeeID">Mã nhân viên</label>
+            <input type="text" id="employeeID" name="employeeID" class="form-control" placeholder="Nhập mã nhân viên">
+            @Html.ValidationMessageFor(model => model.employeeID, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            <label for="name">Tên đầy đủ</label>
+            <input type="text" id="name" name="name" class="form-control" placeholder="Nhập tên đầy đủ">
+            @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })
+        </div>
+
+
+        <div class="form-group">
+            <label for="address">Địa chỉ</label>
+            <input type="text" id="address" name="address" class="form-control" placeholder="Nhập địa chỉ">
+            @Html.ValidationMessageFor(model => model.address, "", new { @class = "text-danger" })
+        </div>
+
+
+        <div class="form-group">
+            <label for="dateOfBirth">Ngày sinh</label>
+            <input type="date" id="dateOfBirth" name="dateOfBirth" class="form-control">
+            @Html.ValidationMessageFor(model => model.dateOfBirth, "", new { @class = "text-danger" })
+        </div>
+
+
+        <div class="form-group">
+            <label for="dateOfBirth">Ngày tham gia</label>
+            <input type="date" id="dateOfJoining" name="dateOfJoining" class="form-control">
+            @Html.ValidationMessageFor(model => model.dateOfJoining, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            <label for="designation">Chức vụ</label>
+            <input type="text" id="designation" name="designation" class="form-control" placeholder="Nhập chức vụ">
+            @Html.ValidationMessageFor(model => model.designation, "", new { @class = "text-danger" })
+        </div>
+
+
+        <div class="form-group">
+            <label for="designation">Phòng ban</label>
+            <select id="designation" name="designation" class="form-control">
+                <option value="CR">CR</option>
+                <option value="Optional">Operational</option>
+            </select>
+            @Html.ValidationMessageFor(model => model.department, "", new { @class = "text-danger" })
+        </div>
+
+
+        <div class="form-group">
+            <label for="password">Mật khẩu</label>
+            <input type="password" id="password" name="password" class="form-control" placeholder="Nhập mật khẩu">
+            @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
+        </div>
+
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Đăng ký</button>
+        </div>
+    }
+</div>
+
+<script>
+    $(function () {
+        $(".datepicker").datepicker({
+            dateFormat: 'dd/mm/yy',
+            changeMonth: true,
+            changeYear: true
+        });
+    });
+</script>

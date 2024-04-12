@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="nhanvien" Class="nhanviensqlDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Table Name="dbo.Employee" Member="Employees">
+    <Type Name="Employee">
+      <Column Name="employeeID" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="address" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="dateOfBirth" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="dateOfJoining" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="designation" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="department" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="password" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="Employee_Complaint" Member="Complaints" ThisKey="employeeID" OtherKey="employeeID" Type="Complaint" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Complaint" Member="Complaints">
+    <Type Name="Complaint">
+      <Column Name="complaintID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="employeeID" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="noidungcomplaint" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Association Name="Employee_Complaint" Member="Employee" ThisKey="employeeID" OtherKey="employeeID" Type="Employee" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

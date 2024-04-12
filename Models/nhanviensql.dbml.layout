@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="nhanviensql">
+  <DataContextMoniker Name="/nhanviensqlDataContext" />
+  <nestedChildShapes>
+    <classShape Id="91f159f4-c259-47db-a10b-baad3ab7ddbd" absoluteBounds="0.75, 1, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/nhanviensqlDataContext/Employee" />
+      <nestedChildShapes>
+        <elementListCompartment Id="efd5b493-12ad-4f90-a859-1f59940c33e7" absoluteBounds="0.765, 1.46, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="163e9376-5711-4cc9-a5eb-a577609914cf" absoluteBounds="3.5, 1.375, 2, 1.3862939453125003">
+      <DataClassMoniker Name="/nhanviensqlDataContext/Complaint" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d5d1fa47-a7f6-4618-86fc-75ecbb9caf63" absoluteBounds="3.515, 1.835, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 2.06814697265625); (3.5 : 2.06814697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/nhanviensqlDataContext/Employee/Employee_Complaint" />
+      <nodes>
+        <classShapeMoniker Id="91f159f4-c259-47db-a10b-baad3ab7ddbd" />
+        <classShapeMoniker Id="163e9376-5711-4cc9-a5eb-a577609914cf" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

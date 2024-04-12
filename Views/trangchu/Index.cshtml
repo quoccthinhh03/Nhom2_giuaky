@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Complaintst</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .comment {
+            width: 100%;
+            height: 150px;
+            padding: 10px;
+            background-color: #d0e2bc;
+            resize: none;
+            margin-bottom: 20px;
+        }
+
+        .btn-primary {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            border: none;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+            .btn-primary:hover {
+                background-color: #0056b3;
+            }
+
+        .list-group-item {
+            border: 1px solid #ddd;
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+        }
+
+            .list-group-item h4 {
+                color: #007bff;
+                margin-bottom: 10px;
+            }
+
+            .list-group-item p {
+                margin-bottom: 0;
+            }
+    </style>
+</head>
+<body>
+    @Html.ActionLink("Đăng xuất", "DangXuat", "trangchu", null, new { @class = "btn btn-danger" })
+
+    <div class="container">
+        <form action="@Url.Action("Comment", "trangchu")" method="POST">
+            <textarea class="comment" placeholder="Nhập bình luận của bạn." name="comment"></textarea>
+            <button type="submit" class="btn btn-primary">Send</button>
+        </form>
+
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <h2 class="text-center mb-4">Complaints gần đây:</h2>
+                <ul class="list-group">
+                    @foreach (var complaint in ViewBag.Complaints)
+                    {
+                        <li class="list-group-item">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h4>Mã nhân viên: @complaint.employeeID</h4>
+                                    <p>Complaints: @complaint.noidungcomplaint</p>
+                                </div>
+                            </div>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
